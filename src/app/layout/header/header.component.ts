@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +9,21 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   router = inject(Router);
+  isDarkMode = false;
+
+  ngOnInit(): void {
+    const savedTheme = localStorage.getItem('theme');
+    this.applyTheme(savedTheme ?? 'light');
+  }
+
+  toggleDarkMode(): void {
+    this.applyTheme(this.isDarkMode ? 'light' : 'dark');
+  }
+
+  private applyTheme(theme: string): void {
+    this.isDarkMode = theme === 'dark';
+    localStorage.setItem('theme', theme);
+  }
 }

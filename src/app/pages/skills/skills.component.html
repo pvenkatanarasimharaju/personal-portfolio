@@ -1,0 +1,56 @@
+<div class="container min-vh-100 d-flex flex-column justify-content-center w-75">
+    <header class="mb-4">
+        <h1 class="fw-bold">Skills & Technologies</h1>
+        <p class="text-muted">A snapshot of my core skills and strengths.</p>
+    </header>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div style="height: 340px;">
+                <canvas baseChart type="radar" [data]="radarChartData" [options]="radarChartOptions">
+                </canvas>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <span *ngFor="let t of tags" class="badge text-bg-secondary px-3 py-2 fs-6">{{ t }}</span>
+            </div>
+            <div class="mb-3">
+                <h5 class="fw-semibold mb-2">Key Strengths</h5>
+                <ul class="list-unstyled text-muted mb-0">
+                    <li class="mb-1 d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Component-based architecture & scalable UI design
+                    </li>
+                    <li class="mb-1 d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Reactive forms & state management
+                    </li>
+                    <li class="mb-1 d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Lazy loading & optimized routing
+                    </li>
+                    <li class="mb-1 d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Cross-browser & responsive development
+                    </li>
+                    <li class="mb-1 d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Strong .NET & SQL backend collaboration
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="fw-semibold mb-2">Tools & Libraries</h6>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge bg-light text-dark border border-secondary">RxJS</span>
+                    <span class="badge bg-light text-dark border border-secondary">NgRx</span>
+                    <span class="badge bg-light text-dark border border-secondary">Chart.js</span>
+                    <span class="badge bg-light text-dark border border-secondary">Bootstrap</span>
+                    <span class="badge bg-light text-dark border border-secondary">SCSS</span>
+                    <span class="badge bg-light text-dark border border-secondary">Jest</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

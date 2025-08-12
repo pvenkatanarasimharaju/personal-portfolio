@@ -13,6 +13,9 @@
                 <li class="nav-item" [ngClass]="{'bg-body-secondary rounded-2': router.url === '/about'}">
                     <a class="nav-link text-black" href="/about">About</a>
                 </li>
+                <li class="nav-item" [ngClass]="{'bg-body-secondary rounded-2': router.url === '/skills'}">
+                    <a class="nav-link text-black" href="/skills">Skills</a>
+                </li>
                 <li class="nav-item" [ngClass]="{'bg-body-secondary rounded-2': router.url === '/resume'}">
                     <a class="nav-link text-black" href="/resume">Resume</a>
                 </li>
@@ -20,9 +23,10 @@
                     <a class="nav-link text-black" href="/contact">Contact</a>
                 </li>
             </ul>
-            <button class="btn btn-outline-dark rounded-2 d-flex align-items-center" type="button"
-                title="Toggle dark mode" aria-label="Toggle dark mode">
-                <i class="bi bi-moon"></i>
+            <button class="btn rounded-2 d-flex align-items-center"
+                [ngClass]="isDarkMode ? 'btn-dark' : 'btn-outline-dark'" type="button" title="Toggle dark mode"
+                aria-label="Toggle dark mode" (click)="toggleDarkMode()">
+                <i class="bi" [ngClass]="isDarkMode ? 'bi-sun-fill' : 'bi-moon'"></i>
             </button>
             <a class="btn btn-dark rounded-2 d-flex align-items-center" href="assets/resume.pdf"
                 download="P_Venkata_Narasimha_Raju_Resume.pdf" target="_blank" rel="noopener" title="Download Resume">

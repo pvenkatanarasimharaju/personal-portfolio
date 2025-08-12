@@ -2,19 +2,20 @@
     <div class="mt-5 mb-2">
         <h1 class="fw-bold mt-4">Resume</h1>
     </div>
-    <div class="shadow rounded-4 bg-white p-3 position-relative">
+    <div class="shadow rounded-4 p-3 position-relative" [class.bg-dark-subtle]="(isDarkMode$ | async)">
         <a href="assets/resume.pdf"
            download="P_Venkata_Narasimha_Raju_Resume.pdf"
            target="_blank"
            rel="noopener"
-           class="btn btn-dark rounded-circle position-absolute download-float-animate"
+           class="btn rounded-circle position-absolute download-float-animate"
+           [ngClass]="(isDarkMode$ | async) ? 'btn-light' : 'btn-dark'"
            style="top: 1rem; right: 3rem; z-index: 10;"
            title="Download Resume"
            aria-label="Download Resume">
             <i class="bi bi-download fs-4"></i>
         </a>
         <pdf-viewer [src]="'assets/resume.pdf'" [render-text]="true" [original-size]="true" [show-all]="true"
-            [zoom-scale]="'page-width'" style="min-height: 70vh;">
+            [zoom-scale]="'page-width'" style="min-height: 70vh;" [class.invert-pdf]="(isDarkMode$ | async)">
         </pdf-viewer>
     </div>
 </div>

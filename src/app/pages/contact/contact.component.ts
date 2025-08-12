@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+
+import { map } from 'rxjs/operators';
+
+import { ThemeService } from '../../core/theme.service';
 
 @Component({
   selector: 'app-contact',
@@ -9,5 +13,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-
+  private theme = inject(ThemeService);
+  isDarkMode$ = this.theme.theme$.pipe(map((theme: string) => theme === 'dark'));
 }

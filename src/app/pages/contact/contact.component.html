@@ -4,37 +4,41 @@
             <div class="p-4">
                 <h1 class="fw-bold mb-3">
                     Get in touch
-                    <i class="bi bi-chat-dots text-black ms-2 chat-animate"></i>
+                    <i class="bi bi-chat-dots text-body-emphasis ms-2 chat-animate"></i>
                 </h1>
                 <p class="text-muted fs-5">
                     I'm open to new opportunities and always happy to connect. Whether you have a question, a project in
                     mind, or just want to say hello, feel free to reach out—I'll do my best to respond promptly!
                 </p>
-                <ul class="list-unstyled text-muted mb-3 ps-0">
+                <ul class="list-unstyled mb-3 ps-0">
                     <li class="mb-2 d-flex align-items-center">
-                        <a href="mailto:pvenkatanarasimharaju@gmail.com"
-                            class="d-flex align-items-center text-decoration-none text-muted link-dark">
+                        <a href="mailto:pvenkatanarasimharaju@gmail.com" target="_blank" rel="noopener"
+                            class="d-flex align-items-center text-decoration-none text-muted"
+                            [ngClass]="(isDarkMode$ | async) ? 'link-light' : 'link-dark'">
                             <i class="bi bi-envelope me-2 fs-5"></i>
                             <span class="fw-medium">pvenkatanarasimharaju@gmail.com</span>
                         </a>
                     </li>
                     <li class="mb-2 d-flex align-items-center">
                         <a href="https://www.linkedin.com/in/pvenkatanarasimharaju/" target="_blank" rel="noopener"
-                            class="d-flex align-items-center text-decoration-none text-muted link-dark">
+                            class="d-flex align-items-center text-decoration-none text-muted"
+                            [ngClass]="(isDarkMode$ | async) ? 'link-light' : 'link-dark'">
                             <i class="bi bi-linkedin me-2 fs-5"></i>
                             <span class="fw-medium">LinkedIn</span>
                         </a>
                     </li>
                     <li class="mb-2 d-flex align-items-center">
-                        <a href="tel:+918309208162"
-                            class="d-flex align-items-center text-decoration-none text-muted link-dark">
+                        <a href="tel:+918309208162" target="_blank" rel="noopener"
+                            class="d-flex align-items-center text-decoration-none text-muted"
+                            [ngClass]="(isDarkMode$ | async) ? 'link-light' : 'link-dark'">
                             <i class="bi bi-telephone me-2 fs-5"></i>
                             <span class="fw-medium">+91 8309208162</span>
                         </a>
                     </li>
                     <li class="mb-2 d-flex align-items-center">
                         <a href="https://github.com/pvenkatanarasimharaju" target="_blank" rel="noopener"
-                            class="d-flex align-items-center text-decoration-none text-muted link-dark">
+                            class="d-flex align-items-center text-decoration-none text-muted"
+                            [ngClass]="(isDarkMode$ | async) ? 'link-light' : 'link-dark'">
                             <i class="bi bi-github me-2 fs-5"></i>
                             <span class="fw-medium">GitHub</span>
                         </a>
@@ -43,7 +47,8 @@
             </div>
         </div>
         <div class="col-lg-6 col-md-5 d-flex justify-content-center">
-            <form class="w-100 p-4 rounded-4 shadow-sm bg-white" style="max-width: 600px;">
+            <form class="w-100 p-4 rounded-4 shadow-sm"
+                [ngClass]="(isDarkMode$ | async) ? 'bg-dark-subtle' : 'bg-white'" style="max-width: 600px;">
                 <div class="mb-3">
                     <label for="name" class="form-label fw-medium">Name</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter your name" autocomplete="name"
@@ -60,10 +65,12 @@
                         required></textarea>
                 </div>
                 <div class="d-flex gap-2 align-items-center">
-                    <button type="submit" class="btn btn-dark px-4">Send Message</button>
+                    <button type="submit" class="btn px-4"
+                        [ngClass]="(isDarkMode$ | async) ? 'btn-light' : 'btn-dark'">Send Message</button>
                     <span class="text-muted small">or</span>
-                    <a href="mailto:pvenkatanarasimharaju@gmail.com"
-                        class="text-sm text-muted text-decoration-none link-dark">
+                    <a href="mailto:pvenkatanarasimharaju@gmail.com" target="_blank" rel="noopener"
+                        class="text-sm text-muted text-decoration-none"
+                        [ngClass]="(isDarkMode$ | async) ? 'link-light' : 'link-dark'">
                         email directly
                     </a>
                 </div>

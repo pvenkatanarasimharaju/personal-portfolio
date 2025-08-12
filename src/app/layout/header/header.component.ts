@@ -2,6 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { map } from 'rxjs/operators';
+
+import { ThemeService } from '../../core/theme.service';
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -11,19 +15,12 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   router = inject(Router);
-  isDarkMode = false;
+  private theme = inject(ThemeService);
+  isDarkMode$ = this.theme.theme$.pipe(map((theme: string) => theme === 'dark'));
 
-  ngOnInit(): void {
-    const savedTheme = localStorage.getItem('theme');
-    this.applyTheme(savedTheme ?? 'light');
-  }
+  ngOnInit(): void { }
 
   toggleDarkMode(): void {
-    this.applyTheme(this.isDarkMode ? 'light' : 'dark');
-  }
-
-  private applyTheme(theme: string): void {
-    this.isDarkMode = theme === 'dark';
-    localStorage.setItem('theme', theme);
+    this.theme.toggleTheme();
   }
 }

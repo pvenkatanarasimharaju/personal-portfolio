@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+
+import { map } from 'rxjs/operators';
+
+import { ThemeService } from './core/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +11,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'personal-portfolio';
+
+  private theme = inject(ThemeService);
+  isDarkMode$ = this.theme.theme$.pipe(map((theme: string) => theme === 'dark'));
 }

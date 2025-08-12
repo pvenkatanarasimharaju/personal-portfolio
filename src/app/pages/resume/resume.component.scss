@@ -1,3 +1,17 @@
+/* Dark mode rendering for pdf viewer: invert and adjust contrast */
+:host ::ng-deep .invert-pdf {
+  & canvas {
+    filter: invert(1) hue-rotate(180deg) contrast(0.95) brightness(0.9);
+    background: transparent !important;
+  }
+
+  & .page,
+  & .page > div,
+  & .ng2-pdf-viewer-container {
+    background: transparent !important;
+  }
+}
+
 .download-float-animate {
     animation: float-bounce 2s infinite;
     box-shadow: 0 4px 16px rgba(0,0,0,0.12);

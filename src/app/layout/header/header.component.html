@@ -1,4 +1,4 @@
-<header class="position-absolute w-100 bg-white border-bottom px-4 py-2" style="z-index: 1030;">
+<header class="position-absolute w-100 bg-body border-bottom px-4 py-2" style="z-index: 1030;">
     <nav class="d-flex justify-content-between align-items-center flex-wrap">
         <div class="d-flex align-items-center gap-2">
             <div>
@@ -11,24 +11,24 @@
         <div class="d-flex align-items-center gap-3 flex-wrap">
             <ul class="nav gap-2">
                 <li class="nav-item" [ngClass]="{'bg-body-secondary rounded-2': router.url === '/about'}">
-                    <a class="nav-link text-black" href="/about">About</a>
+                    <a class="nav-link link-body-emphasis" href="/about">About</a>
                 </li>
                 <li class="nav-item" [ngClass]="{'bg-body-secondary rounded-2': router.url === '/skills'}">
-                    <a class="nav-link text-black" href="/skills">Skills</a>
+                    <a class="nav-link link-body-emphasis" href="/skills">Skills</a>
                 </li>
                 <li class="nav-item" [ngClass]="{'bg-body-secondary rounded-2': router.url === '/resume'}">
-                    <a class="nav-link text-black" href="/resume">Resume</a>
+                    <a class="nav-link link-body-emphasis" href="/resume">Resume</a>
                 </li>
                 <li class="nav-item" [ngClass]="{'bg-body-secondary rounded-2': router.url === '/contact'}">
-                    <a class="nav-link text-black" href="/contact">Contact</a>
+                    <a class="nav-link link-body-emphasis" href="/contact">Contact</a>
                 </li>
             </ul>
             <button class="btn rounded-2 d-flex align-items-center"
-                [ngClass]="isDarkMode ? 'btn-dark' : 'btn-outline-dark'" type="button" title="Toggle dark mode"
+                [ngClass]="(isDarkMode$ | async) ? 'btn-outline-light' : 'btn-outline-dark'" type="button" title="Toggle dark mode"
                 aria-label="Toggle dark mode" (click)="toggleDarkMode()">
-                <i class="bi" [ngClass]="isDarkMode ? 'bi-sun-fill' : 'bi-moon'"></i>
+                <i class="bi" [ngClass]="(isDarkMode$ | async) ? 'bi-sun-fill' : 'bi-moon'"></i>
             </button>
-            <a class="btn btn-dark rounded-2 d-flex align-items-center" href="assets/resume.pdf"
+            <a class="btn rounded-2 d-flex align-items-center" [ngClass]="(isDarkMode$ | async) ? 'btn-light' : 'btn-dark'" href="assets/resume.pdf"
                 download="P_Venkata_Narasimha_Raju_Resume.pdf" target="_blank" rel="noopener" title="Download Resume">
                 <i class="bi bi-download me-1"></i>
                 <span class="d-none d-sm-inline">Resume</span>
